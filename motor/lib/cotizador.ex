@@ -39,6 +39,7 @@ defmodule Cotizador do
       case reglas.descuento do
         %{criterio: :mas_de, pct: pct, umbral_kg: umbral} when peso > umbral ->
           round(flete_bruto * pct / 100)
+
         _ ->
           0
       end
@@ -54,16 +55,17 @@ defmodule Cotizador do
     ajuste_minimo = max(reglas.minimo - total_sin_minimo, 0)
     total = total_sin_minimo + ajuste_minimo
 
-    {:ok, %{
-      id: embarque.id,
-      flete_bruto: flete_bruto,
-      descuento: descuento,
-      flete: flete,
-      recargo: recargo,
-      cuota_puente: cuota_puente,
-      ajuste_minimo: ajuste_minimo,
-      total: total
-    }}
+    {:ok,
+     %{
+       id: embarque.id,
+       flete_bruto: flete_bruto,
+       descuento: descuento,
+       flete: flete,
+       recargo: recargo,
+       cuota_puente: cuota_puente,
+       ajuste_minimo: ajuste_minimo,
+       total: total
+     }}
   end
 
   def resumen(lote, reglas) do
@@ -84,10 +86,10 @@ defmodule Cotizador do
     por_puente =
       cotizados
       |> Enum.group_by(fn c ->
-          lote
-          |> Enum.find(fn e -> e.id == c.id end)
-          |> Map.get(:puente)
-        end)
+        lote
+        |> Enum.find(fn e -> e.id == c.id end)
+        |> Map.get(:puente)
+      end)
       |> Enum.map(fn {puente, cs} -> {puente, Enum.sum(Enum.map(cs, fn c -> c.total end))} end)
       |> Map.new()
 
