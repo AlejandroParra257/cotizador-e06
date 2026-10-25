@@ -34,6 +34,7 @@ tsc marca un error (TS2741) diciendo que falta la propiedad perecedera en Record
 **e)** ¿Cuántos lugares cambiaste en `despacho.ts` para agregar perecedera?
 
 Dos: el tipo Tipo y la entrada de POLITICAS. Las funciones no cambian.
+
 ## Los dos lenguajes
 
 **f)** En su motor de Elixir, ¿qué pasa si llega un tipo de carga para el que no hay cláusula? ¿Y en
