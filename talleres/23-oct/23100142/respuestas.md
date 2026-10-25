@@ -2,7 +2,7 @@
 
 Nombre: Fernando Guadalupe Campos Villanueva
 
-Número de control: 22100142
+Número de control: 23100142
 
 Equipo: E06
 
