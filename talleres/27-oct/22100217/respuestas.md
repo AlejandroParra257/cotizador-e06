@@ -44,8 +44,9 @@ tablas de funciones en lugar de jerarquías de clases. El archivo es
 `cotizador-06/src/modelo.ts`, funciones `cotizar` y `calcular`, con las tablas
 `COMPARA`, `BASE` y `TIENE_PESO_MAXIMO`.
 
-**f)** Usaría herencia para modelar los tipos de usuario de una aplicación:
-`Usuario` → `Administrador`. Aquí no hay explosión de combinaciones porque un
-administrador siempre es exactamente eso; no hay "administrador-con-permiso-x" y
-"administrador-con-permiso-y" como variantes separadas: los permisos se manejan
-como datos dentro del mismo objeto.
+**f)** Usaría herencia para modelar los roles de acceso: `Usuario` como clase base y
+`Administrador` como subclase que agrega permisos de gestión. No hay explosión de
+combinaciones porque la única dimensión de variación es el nivel de acceso: o eres
+usuario normal o eres administrador, sin combinaciones entre tipos. A diferencia de
+los extras de una cotización (frío, seguro, express que se pueden mezclar), aquí
+cada objeto pertenece a exactamente un rol.
