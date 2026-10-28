@@ -29,13 +29,13 @@ La función `cotizar` no cambió: sigue siendo un `reduce` que aplica cada ajust
 
 | Llamada | Predigo | Salió |
 |---|---|---|
-| `cotizar(100, 1000, [express, seguro])` | 102040 | 102040 |
-| `cotizar(100, 1000, [seguro, express])` | 102020 | 102020 |
+| `cotizar(100, 1000, [express, seguro])` | 153000 | 153000 |
+| `cotizar(100, 1000, [seguro, express])` | 152000 | 152000 |
 
-**d)** En el primer caso el express (+50 000 centavos) se aplica antes, entonces el
-seguro (2 %) se calcula sobre una base más grande y el total sube más. En el segundo
-caso el seguro se calcula primero sobre la base original, y express suma sus 50 000
-fijos encima, resultando en un total menor.
+**d)** En el primer caso express (+50 000) se aplica primero, entonces el seguro (2 %)
+se calcula sobre una base más grande (150 000) y suma 3 000 más. En el segundo caso
+el seguro se calcula sobre la base original (100 000) y solo suma 2 000, dejando un
+total menor aunque express sume los mismos 50 000 fijos al final.
 
 ## Paso 4 · Sostén la decisión
 
