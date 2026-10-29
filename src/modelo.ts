@@ -34,7 +34,7 @@ export type Cotizacion = {
 // un rechazado no tiene cotización, y un despachado exige folio.
 export type Borrador = { estado: 'borrador'; embarque: Embarque };
 export type Cotizado = { estado: 'cotizado'; embarque: Embarque; cotizacion: Cotizacion };
-//Un rechazo no tiene cotizacion, asi que no puede leer un precio que nunca se caluclo
+// Un rechazo no tiene cotización, así que no puede leer un precio que nunca se calculó 
 export type Rechazado = { estado: 'rechazado'; embarque: Embarque; motivo: Motivo };
 export type Despachado = {
   estado: 'despachado';
